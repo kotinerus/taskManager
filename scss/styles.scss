@@ -1,0 +1,32 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@font-face {
+  font-family: headingFont;
+  src: url(../FONTS/Jungle\ Kid.otf);
+}
+
+body {
+  background-image: url(../images/background_patern.png);
+  background-repeat: space- repeat;
+  margin: 0%;
+  padding: 0%;
+}
+.nav {
+  font-family: headingFont;
+  h1 {
+    font-size: 4vw;
+  }
+}
+.child {
+  position: absolute;
+  background-color: lightblue;
+  left: 0%;
+}
+.row_task {
+  padding: 0%;
+  background-color: lightgreen;
+  align-items: center;
+}
+.task {
+  background-color: lightslategray;
+  border-radius: 2%;
+}
