@@ -4,29 +4,98 @@
   src: url(../FONTS/Jungle\ Kid.otf);
 }
 
+//Potrzebne zmiany na 1080pixeli
+
 body {
-  background-image: url(../images/background_patern.png);
-  background-repeat: space- repeat;
+  background-image: linear-gradient(to left, #4ca1af, #c4e0e5);
+  background-attachment: fixed;
   margin: 0%;
   padding: 0%;
-}
-.nav {
   font-family: headingFont;
-  h1 {
-    font-size: 4vw;
+  overflow-x: hidden;
+  h3 {
+    margin-bottom: 0rem;
   }
 }
-.child {
-  position: absolute;
-  background-color: lightblue;
-  left: 0%;
+
+.main_container_flex_row {
+  display: flex;
+
+  .main_container_flex_row_form_col {
+    background-color: lightcoral;
+    align-self: flex-start;
+    .flex_row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  .main_container_flex_row_tasks_col {
+    display: flex;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    align-self: stretch;
+    text-align: center;
+    flex-direction: column;
+    .dynamicEventsRow {
+      background-color: lightseagreen;
+      width: 99%;
+      align-self: flex-start;
+      display: flex;
+      box-sizing: border-box;
+    }
+
+    // .dynamicEventsRow {
+    //   flex: 1;
+    //   align-self: flex-start;
+    //   display: flex;
+    //   align-items: stretch;
+    //   flex-direction: column;
+    //   border-radius: 2%;
+    //   background-color: rgb(181, 175, 159);
+    //   .item {
+    //     flex: 1;
+    //     font-size: 1rem;
+    //     align-self: center;
+    //     height: 32px;
+    //     box-sizing: border-box;
+    //   }
+  }
 }
-.row_task {
-  padding: 0%;
-  background-color: lightgreen;
-  align-items: center;
-}
-.task {
-  background-color: lightslategray;
-  border-radius: 2%;
+
+// .row_task {
+//   flex: 3;
+//   align-self: stretch;
+//   padding: 0%;
+//   background-color: rgb(199, 186, 151);
+// }
+
+.nav {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 20vw;
+  }
+  @media (max-width: 992px) {
+    img {
+      width: 30vw;
+    }
+  }
+  @media (max-width: 576px) {
+    img {
+      content: url(../images/icon.svg);
+      width: 10vw;
+    }
+  }
+
+  // .nav_img_app {
+  //   img {
+  //     @media (max-width: 992px) {
+  //       content: url(../images/icon.svg);
+  //       width: 7vh;
+  //     }
+  //     width: 25vw;
+  //   }
+  // }
 }
