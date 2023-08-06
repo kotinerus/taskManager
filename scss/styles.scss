@@ -7,7 +7,8 @@
 //Potrzebne zmiany na 1080pixeli
 
 body {
-  background-image: linear-gradient(to left, #4ca1af, #c4e0e5);
+  background: rgb(11, 13, 14);
+  background: linear-gradient(339deg, rgba(11, 13, 14, 1) 13%, #524c54 100%);
   background-attachment: fixed;
   margin: 0%;
   padding: 0%;
@@ -20,11 +21,13 @@ body {
 
 .main_container_flex_row {
   display: flex;
-
   .main_container_flex_row_form_col {
-    background-color: lightcoral;
+    border-radius: 10px;
+    background-color: #006494;
     align-self: flex-start;
+    color: #051923;
     .flex_row {
+      width: 98%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -33,17 +36,22 @@ body {
   }
   .main_container_flex_row_tasks_col {
     display: flex;
-    background-color: antiquewhite;
+    background-color: #051923;
+
     border-radius: 10px;
     align-self: stretch;
     text-align: center;
     flex-direction: column;
     .dynamicEventsRow {
-      background-color: lightseagreen;
+      color: #051923;
+      background-color: #006494;
       width: 99%;
       align-self: flex-start;
       display: flex;
       box-sizing: border-box;
+      svg {
+        fill: #051923;
+      }
     }
 
     // .dynamicEventsRow {
@@ -75,14 +83,9 @@ body {
   display: flex;
   justify-content: center;
   img {
-    width: 20vw;
+    width: 30vw;
   }
   @media (max-width: 992px) {
-    img {
-      width: 30vw;
-    }
-  }
-  @media (max-width: 576px) {
     img {
       content: url(../images/icon.svg);
       width: 10vw;

@@ -11984,7 +11984,8 @@ textarea.form-control-lg {
   src: url(../FONTS/Jungle\ Kid.otf);
 }
 body {
-  background-image: linear-gradient(to left, #4ca1af, #c4e0e5);
+  background: rgb(11, 13, 14);
+  background: linear-gradient(339deg, rgb(11, 13, 14) 13%, #524c54 100%);
   background-attachment: fixed;
   margin: 0%;
   padding: 0%;
@@ -11999,10 +12000,13 @@ body h3, body .h3 {
   display: flex;
 }
 .main_container_flex_row .main_container_flex_row_form_col {
-  background-color: lightcoral;
+  border-radius: 10px;
+  background-color: #006494;
   align-self: flex-start;
+  color: #051923;
 }
 .main_container_flex_row .main_container_flex_row_form_col .flex_row {
+  width: 98%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12010,18 +12014,22 @@ body h3, body .h3 {
 }
 .main_container_flex_row .main_container_flex_row_tasks_col {
   display: flex;
-  background-color: antiquewhite;
+  background-color: #051923;
   border-radius: 10px;
   align-self: stretch;
   text-align: center;
   flex-direction: column;
 }
 .main_container_flex_row .main_container_flex_row_tasks_col .dynamicEventsRow {
-  background-color: lightseagreen;
+  color: #051923;
+  background-color: #006494;
   width: 99%;
   align-self: flex-start;
   display: flex;
   box-sizing: border-box;
+}
+.main_container_flex_row .main_container_flex_row_tasks_col .dynamicEventsRow svg {
+  fill: #051923;
 }
 
 .nav {
@@ -12029,14 +12037,9 @@ body h3, body .h3 {
   justify-content: center;
 }
 .nav img {
-  width: 20vw;
+  width: 30vw;
 }
 @media (max-width: 992px) {
-  .nav img {
-    width: 30vw;
-  }
-}
-@media (max-width: 576px) {
   .nav img {
     content: url(../images/icon.svg);
     width: 10vw;
