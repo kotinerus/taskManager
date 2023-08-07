@@ -11995,14 +11995,11 @@ body h3, body .h3 {
   margin-bottom: 0rem;
 }
 
-.main_container_flex_row {
-  display: flex;
-}
 .main_container_flex_row .main_container_flex_row_form_col {
+  display: none;
   border-radius: 10px;
-  background-color: #006494;
-  align-self: flex-start;
-  color: #051923;
+  background-color: #0c0c0d;
+  color: #e6d5ec;
 }
 .main_container_flex_row .main_container_flex_row_form_col .flex_row {
   width: 98%;
@@ -12011,8 +12008,13 @@ body h3, body .h3 {
   justify-content: center;
   text-align: center;
 }
+.main_container_flex_row .main_container_flex_row_form_col .flex_row svg {
+  fill: #e6d5ec;
+}
 .main_container_flex_row .main_container_flex_row_tasks_col {
   display: flex;
+  position: relative;
+  padding-bottom: 5%;
   background-color: #0c0c0d;
   border-radius: 10px;
   align-self: stretch;
@@ -12021,13 +12023,23 @@ body h3, body .h3 {
 }
 .main_container_flex_row .main_container_flex_row_tasks_col .visual_row {
   display: flex;
-  position: relative;
-  width: 9%;
-  left: 91%;
+  color: #e6d5ec;
+}
+.main_container_flex_row .main_container_flex_row_tasks_col .visual_row .dots {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3%;
+  gap: 2%;
+}
+.main_container_flex_row .main_container_flex_row_tasks_col .visual_row .visual_row_button_col .btn {
+  margin-top: 2%;
+  color: #e6d5ec;
+  background-color: #23222b;
+  width: 100%;
 }
 .main_container_flex_row .main_container_flex_row_tasks_col .dynamicEventsRow {
   position: relative;
-  top: 10%;
+  top: 5%;
   color: #e6d5ec;
   background-color: #23222b;
   width: 99%;

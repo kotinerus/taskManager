@@ -8,9 +8,15 @@ const dataWydarzenia = document.querySelector("#dataWydarzenia");
 const godzinaWydarzenia = document.querySelector("#godzinaWydarzenia");
 const kolorWydarzenia = document.querySelector("#kolorWydarzenia");
 const btnImportantForm = document.querySelector(".btn_important_form");
+const btnNewEvent = document.querySelector(".addNewEventBtn");
+const formDiv = document.querySelector(".main_container_flex_row_form_col");
 
 let events = [];
 let isImportant = 0;
+
+btnNewEvent.addEventListener("click", function (e) {
+  formDiv.style.display = "block";
+});
 
 btnImportantForm.addEventListener("click", function (e) {
   const element = e.currentTarget.firstChild;
@@ -85,15 +91,14 @@ class Event {
     // this._questionButton(element);
   }
 
-  _swappingColorsOfSvg(color) {
-    console.log(this.querySelector("svg").setAttribute("fill", color));
-  }
+  // _swappingColorsOfSvg(color) {
+  //   console.log(this.querySelector("svg").setAttribute("fill", color));
+  // }
   //DONE BUTTON
   _doneButton(element) {
     const elementBase = element.querySelector(".btn_done");
 
     elementBase.addEventListener("mouseenter", function () {
-      console.log(this);
       this.querySelector("svg").setAttribute("fill", "rgb(129, 245, 66)");
     });
 
@@ -135,6 +140,7 @@ btnNewTask.addEventListener("click", function (e) {
   );
   console.log(isImportant);
   clearForm();
+  formDiv.style.display = "none";
 });
 addingEventsFromLocalStorage();
 function addingEventsFromLocalStorage() {
