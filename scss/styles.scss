@@ -7,8 +7,7 @@
 //Potrzebne zmiany na 1080pixeli
 
 body {
-  background: rgb(11, 13, 14);
-  background: linear-gradient(339deg, rgba(11, 13, 14, 1) 13%, #524c54 100%);
+  background: #1c1b22;
   background-attachment: fixed;
   margin: 0%;
   padding: 0%;
@@ -36,22 +35,27 @@ body {
   }
   .main_container_flex_row_tasks_col {
     display: flex;
-    background-color: #051923;
-
+    background-color: #0c0c0d;
     border-radius: 10px;
     align-self: stretch;
     text-align: center;
     flex-direction: column;
+    .visual_row {
+      display: flex;
+      position: relative;
+      width: 9%;
+      left: 91%;
+    }
+
     .dynamicEventsRow {
-      color: #051923;
-      background-color: #006494;
+      position: relative;
+      top: 10%;
+      color: #e6d5ec;
+      background-color: #23222b;
       width: 99%;
       align-self: flex-start;
       display: flex;
       box-sizing: border-box;
-      svg {
-        fill: #051923;
-      }
     }
 
     // .dynamicEventsRow {
