@@ -1,6 +1,6 @@
 const btnImportant = document.querySelectorAll(".btn_important");
 const btnNewTask = document.querySelector(".btn_add");
-const rowTask = document.querySelector(".main_container_flex_row_tasks_col");
+const rowTask = document.querySelector("#taskContainer");
 const colDate = document.querySelector(".col_date");
 const valueOf = new Date().getHours();
 const nazwaWydarzenia = document.querySelector("#nazwaWydarzenia");
@@ -9,13 +9,13 @@ const godzinaWydarzenia = document.querySelector("#godzinaWydarzenia");
 const kolorWydarzenia = document.querySelector("#kolorWydarzenia");
 const btnImportantForm = document.querySelector(".btn_important_form");
 const btnNewEvent = document.querySelector(".addNewEventBtn");
-const formDiv = document.querySelector(".main_container_flex_row_form_col");
+const formDiv = document.querySelector(".main_container_flex_row");
 
 let events = [];
 let isImportant = 0;
 
 btnNewEvent.addEventListener("click", function (e) {
-  formDiv.style.display = "block";
+  formDiv.style.display = "flex";
 });
 
 btnImportantForm.addEventListener("click", function (e) {
@@ -40,13 +40,14 @@ const clearForm = () => {
 };
 
 class Event {
-  constructor(nazwa, data, godzina, wazne) {
+  constructor(nazwa, data, godzina, id) {
     this.nazwa = nazwa;
     this.data = data;
     this.godzina = godzina;
-    this.wazne = wazne;
+    this.id = id;
     if (this._checkValues()) return;
     this._newElementConstructor();
+    events.push(this);
     this._addElementsToLocalStorage();
   }
 
@@ -73,7 +74,7 @@ class Event {
     <div class="col-4 item text-center"><h3>${this.nazwa}</h3></div>
     <div class="col-5 item text-center"><h3>${this.data}${this.godzina != "" ? "," : ""} ${this.godzina}</h3></div>     
     <div class="col-1 btn btn_done">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill='#e6d5ec'; class="bi bi-check-lg" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill='#e6d5ec'; value=${this.id} class="bi bi-check-lg" viewBox="0 0 16 16">
         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
       </svg>
     </div>
@@ -91,47 +92,29 @@ class Event {
     // this._questionButton(element);
   }
 
-  // _swappingColorsOfSvg(color) {
-  //   console.log(this.querySelector("svg").setAttribute("fill", color));
-  // }
   //DONE BUTTON
+  _addElementsToLocalStorage() {
+    localStorage.setItem("eventsList", JSON.stringify(events)); // Why it's adding empty object?
+  }
   _doneButton(element) {
     const elementBase = element.querySelector(".btn_done");
-
     elementBase.addEventListener("mouseenter", function () {
       this.querySelector("svg").setAttribute("fill", "rgb(129, 245, 66)");
     });
 
     elementBase.addEventListener("mouseleave", function () {
-      this.querySelector("svg").setAttribute("fill", "currentColor");
+      this.querySelector("svg").setAttribute("fill", "#e6d5ec");
     });
     elementBase.addEventListener("click", function (e) {
       element.remove();
+      events.pop(e.target.getAttribute("value"));
+      localStorage.setItem("eventsList", JSON.stringify(events));
     });
-  }
-  _questionButton(element) {
-    const elementBase = element.querySelector(".btn_question");
-    elementBase.addEventListener("mouseenter", function () {
-      this.querySelector("svg").setAttribute("fill", "rgb(245, 245, 66)");
-    });
-
-    elementBase.addEventListener("mouseleave", function () {
-      this.querySelector("svg").setAttribute("fill", "currentColor");
-    });
-  }
-  _addElementsToLocalStorage() {
-    events.push(this);
-
-    const jsonArray = JSON.stringify(events);
-
-    localStorage.setItem("eventsList", JSON.stringify(events)); // Why it's adding empty object?
   }
 }
 
 //Ading new event
-
 btnNewTask.addEventListener("click", function (e) {
-  // Tworzenie nowego elementu
   const event = new Event(
     nazwaWydarzenia.value,
     dataWydarzenia.value,
@@ -147,8 +130,14 @@ function addingEventsFromLocalStorage() {
   const eventsList = JSON.parse(localStorage.getItem("eventsList"));
 
   if (!eventsList || events == null) return;
+  let id = 0;
   eventsList.forEach((event) => {
-    const newEvent = new Event(event["nazwa"], event["data"], event["godzina"]);
-    //prettier-ignore
+    const newEvent = new Event(
+      event["nazwa"],
+      event["data"],
+      event["godzina"],
+      id
+    );
+    id++;
   });
 }
