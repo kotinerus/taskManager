@@ -16,9 +16,10 @@ const btnNo = document.querySelector(".btn_no");
 const btnYes = document.querySelector(".btn_yes");
 
 let events = [];
-
+let opened = false
 btnNewEvent.addEventListener("click", function (e) {
-  formDiv.style.display = "flex";
+opened? formDiv.style.display = "none": formDiv.style.display = "flex";
+opened = !opened
 });
 
 btnImportant.addEventListener("click", function (e) {

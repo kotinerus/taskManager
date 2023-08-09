@@ -12022,10 +12022,6 @@ body h3, body .h3 {
   border-radius: 15px;
   margin: 1%;
 }
-.main_container .main_container_flex_row .main_container_flex_row_inputs .custom_time {
-  position: relative;
-  width: 500px;
-}
 .main_container .main_container_flex_row .main_container_flex_row_buttons {
   display: flex;
   flex-direction: column;
