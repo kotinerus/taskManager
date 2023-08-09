@@ -11,6 +11,9 @@ const godzinaWydarzenia = document.querySelector("#godzinaWydarzenia");
 const elementOne = document.querySelector(".bi-exclamation-diamond");
 const btnNewEvent = document.querySelector(".addNewEventBtn");
 const formDiv = document.querySelector(".main_container_flex_row");
+const deleteBox = document.querySelector(".delete_check");
+const btnNo = document.querySelector(".btn_no");
+const btnYes = document.querySelector(".btn_yes");
 
 let events = [];
 
@@ -50,7 +53,6 @@ class Event {
       return;
     }
     this._newElementConstructor();
-    console.log(this);
     events.push(this);
     this._addElementsToLocalStorage();
   }
@@ -109,9 +111,25 @@ class Event {
       this.querySelector("svg").setAttribute("fill", "#e6d5ec");
     });
     elementBase.addEventListener("click", function (e) {
-      element.remove();
-      events.pop(e.target.getAttribute("value"));
-      localStorage.setItem("eventsList", JSON.stringify(events));
+      deleteBox.style.display = "flex";
+      rowTask.style.opacity = 0.3;
+      const messageBox = document.querySelector(".delete_check_message");
+      const name = this.parentNode
+        .getElementsByTagName("div")[1]
+        .innerHTML.slice(4, -5);
+
+      messageBox.innerHTML = `<h3>Do you want to delete ${name}</h3>`;
+      btnNo.addEventListener("click", function (e) {
+        deleteBox.style.display = "none";
+        rowTask.style.opacity = 1;
+      });
+      btnYes.addEventListener("click", function (e) {
+        element.remove();
+        events.pop(e.target.getAttribute("value"));
+        localStorage.setItem("eventsList", JSON.stringify(events));
+        deleteBox.style.display = "none";
+        rowTask.style.opacity = 1;
+      });
     });
   }
 }

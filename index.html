@@ -19,49 +19,85 @@
     </div>
     <!-- prettier-ignore -->
     <div class="main_container">
+      <div class="delete_check">
+        <div class="delete_check_alert text-center w-100">
+          <h2>ATTENTION</h2>
+        </div>
+        <div class="delete_check_message text-center pt-5 h-50 w-100"></div>
+        <div class="row  justify-content-center align-items-center g-2 buttons_row">
+          <div class="col-5 btn btn_yes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="green" class="bi bi-check-lg" viewBox="0 0 16 16">
+              <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+            </svg>
+          </div>
+          <div class="col-5 btn btn_no"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+          </svg></div>
+        </div>
+      </div>
       <div class="row justify-content-center align-items-center g-3 main_container_flex_row">
             <div class="col-lg-8 main_container_flex_row_inputs">
-              <div class="mb-2 row justify-content-center align-items-center text-center g-2 nameInputRow">
-                <label for="inputName" class="col-lg-3 col-form-label"><h3>Name of the event</h3></label>
-                <div class="col-lg-7">
-                  <input type="text" class="form-control w-lg-75" name="inputName" id="nazwaWydarzenia" placeholder="Event name"/>
+              <div class="mb-2 row justify-content-start align-items-start text-center m-1 g-2 nameInputRow">
+                <label for="inputName" class="col-lg-4 col-form-label text-start "><h3>Name of the event</h3></label>
+                <div class="col-lg-6  ">
+                  <input type="text" class="form-control w-75 mx-auto  m-1"  name="inputName" id="nazwaWydarzenia" placeholder="Event name"/>
                 </div>
               </div>
-              <div class="mb-2 row justify-content-center align-items-center text-center g-2">
-                <label for="inputDay" class="col-lg-3 col-form-label"><h3>Day of the event</h3></label>
-                <div class="col-lg-7">
-                  <input type="date" class="form-control w-lg-75" name="inputDay" id="dataWydarzenia" value="2023-07-11"/>
-                </div>
-              </div>
-              <div class="mb-2 row justify-content-center align-items-center text-center g-2">
-                  <label for="inputTime" class="col-lg-3 col-form-label"><h3>Event time</h3></label>
-                  <div class="col-lg-7">
-                    <input type="time" class="form-control w-lg-75" name="inputTime" id="godzinaWydarzenia" value="12:00"/>
+              <div class="mb-2 row justify-content-start align-items-center text-center g-2">
+                <div class="col-lg-6">
+                  <div class="row justify-content-center align-items-center g-2">
+                    <div class="col-5">
+                      <label for="inputDay" class="col-form-label">
+                        <h3>Day of the event</h3>
+                      </label>
+                    </div>
+                    <div class="col-7 ">
+                      <input type="date" class="form-control text-center w-50" name="inputDay" id="dataWydarzenia" value="2023-07-11"/>
+                    </div>
                   </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row justify-content-center align-items-center g-2">
+                  <div class="col-5">
+                    <div class="row justify-content-center align-items-center g-2">
+                      <label for="inputTime" class=" col-form-label"><h3>Event time</h3></label>
+                    </div>
+                  </div>
+                    <div class="col-7">
+                      <input type="time" class="form-control custom_time text-center w-50"  name="inputTime" id="godzinaWydarzenia"  value="12:00"/>
+                    </div>
+                  
+                </div>
+              </div>
+                
+              </div>
+           
+             
+            </div>
+          <div class="col-lg-4 main_container_flex_row_buttons  p-2">
+            <div class="col btn btn_important_form" value="0">
+              <div class="row justify-content-center align-items-center g-2">
+                <div class="col-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#e6d5ec" class="bi bi-exclamation-diamond"  viewBox="0 0 16 16">
+                  <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                </svg></div>
+                <div class="col-8"><h3>It's important</h3></div>
               </div>
             </div>
-          <div class="col-lg-4 main_container_flex_row_buttons">
-            <div class="col btn btn_important_form" value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#e6d5ec" class="bi bi-exclamation-diamond"  viewBox="0 0 16 16">
-                <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
-                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-              </svg>
-              <h3>It's important</h3>
-            </div>
-            <div class="col btn btn_add">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#e6d5ec" class="bi bi-calendar-plus-fill" viewBox="0 0 16 16">
-                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM8.5 8.5V10H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V11H6a.5.5 0 0 1 0-1h1.5V8.5a.5.5 0 0 1 1 0z"/>
-              </svg>
-              <h3>Add to tasklist</h3>
+            <div class="col btn btn_add p-2">
+              <div class="row justify-content-center align-items-center g-2">
+                <div class="col-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                </svg></div>
+                <div class="col-8"><h3>Add to tasklist</h3></div>
+              </div>
             </div>
           </div>
       </div>
       <div class="col main_container_flex_row_tasks" id="taskContainer">
         <div class="row justify-content-center align-items-center g-2 visual_row">
           <div class="col-lg-3 visual_row_button"><div class="btn addNewEventBtn"><h3>Add new event</h3></div></div>
-          <div class="col-lg-6 visual_row_heading">
-            <h3>Your events</h3>
-          </div>
+          <div class="col-lg-6"></div>
           <div class="col-lg-3 dots">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4F772D" class="bi bi-circle-fill" viewBox="0 0 16 16">
               <circle cx="8" cy="8" r="8" />
