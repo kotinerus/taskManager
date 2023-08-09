@@ -1,52 +1,56 @@
-const btnImportant = document.querySelectorAll(".btn_important");
+const btnImportant = document.querySelector(".btn_important_form");
 const btnNewTask = document.querySelector(".btn_add");
 const rowTask = document.querySelector("#taskContainer");
-const colDate = document.querySelector(".col_date");
-const valueOf = new Date().getHours();
+// const colDate = document.querySelector(".col_date");
+// const valueOf = new Date().getHours();
 const nazwaWydarzenia = document.querySelector("#nazwaWydarzenia");
 const dataWydarzenia = document.querySelector("#dataWydarzenia");
 const godzinaWydarzenia = document.querySelector("#godzinaWydarzenia");
-const kolorWydarzenia = document.querySelector("#kolorWydarzenia");
-const btnImportantForm = document.querySelector(".btn_important_form");
+
+// const kolorWydarzenia = document.querySelector("#kolorWydarzenia");
+const elementOne = document.querySelector(".bi-exclamation-diamond");
 const btnNewEvent = document.querySelector(".addNewEventBtn");
 const formDiv = document.querySelector(".main_container_flex_row");
 
 let events = [];
-let isImportant = 0;
 
 btnNewEvent.addEventListener("click", function (e) {
   formDiv.style.display = "flex";
 });
 
-btnImportantForm.addEventListener("click", function (e) {
-  const element = e.currentTarget.firstChild;
+btnImportant.addEventListener("click", function (e) {
+  // const element = e.currentTarget.svg;
 
-  if (element.getAttribute("fill") == "currentColor") {
-    element.setAttribute("fill", "red");
-    element.setAttribute("value", 1);
-    isImportant = element.getAttribute("value");
+  if (elementOne.getAttribute("fill") == "#e6d5ec") {
+    elementOne.setAttribute("fill", "red");
+    e.currentTarget.setAttribute("value", 1);
   } else {
-    element.setAttribute("fill", "currentColor");
-    element.setAttribute("value", 0);
-    isImportant = element.getAttribute("value");
+    elementOne.setAttribute("fill", "#e6d5ec");
+    e.currentTarget.setAttribute("value", 0);
   }
 });
 const clearForm = () => {
   nazwaWydarzenia.value = "";
-  dataWydarzenia.value = "";
-  godzinaWydarzenia.value = "";
-  btnImportantForm.firstChild.setAttribute("fill", "currentColor");
-  isImportant = 0;
+  dataWydarzenia.value = "2023-07-11";
+  godzinaWydarzenia.value = "12:00";
+  elementOne.setAttribute("fill", "#e6d5ec");
+  btnImportant.setAttribute("value", 0);
 };
 
 class Event {
-  constructor(nazwa, data, godzina, id) {
+  constructor(nazwa, data, godzina, id, important) {
     this.nazwa = nazwa;
     this.data = data;
     this.godzina = godzina;
     this.id = id;
-    if (this._checkValues()) return;
+    this.important = important;
+
+    if (this._checkValues()) {
+      alert("Incomplete information has been entered");
+      return;
+    }
     this._newElementConstructor();
+    console.log(this);
     events.push(this);
     this._addElementsToLocalStorage();
   }
@@ -66,7 +70,7 @@ class Event {
     //prettier-ignore
     newElement.innerHTML = `
     <div class="col-1  btn_important ">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="${isImportant==1? 'red':'#e6d5ec'}" class="bi bi-exclamation-diamond" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="${this.important==1? 'red':'#e6d5ec'}" value=${this.important} class="bi bi-exclamation-diamond" viewBox="0 0 16 16">
         <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
       </svg>
@@ -89,13 +93,12 @@ class Event {
   _addingButtonsFunctionality(element) {
     // this._importantButton(element);
     this._doneButton(element);
-    // this._questionButton(element);
   }
 
-  //DONE BUTTON
   _addElementsToLocalStorage() {
     localStorage.setItem("eventsList", JSON.stringify(events)); // Why it's adding empty object?
   }
+  //DONE BUTTON
   _doneButton(element) {
     const elementBase = element.querySelector(".btn_done");
     elementBase.addEventListener("mouseenter", function () {
@@ -119,25 +122,26 @@ btnNewTask.addEventListener("click", function (e) {
     nazwaWydarzenia.value,
     dataWydarzenia.value,
     godzinaWydarzenia.value,
-    isImportant
+    events.length,
+    parseInt(btnImportant.getAttribute("value"))
   );
-  console.log(isImportant);
+
   clearForm();
   formDiv.style.display = "none";
 });
 addingEventsFromLocalStorage();
+
 function addingEventsFromLocalStorage() {
   const eventsList = JSON.parse(localStorage.getItem("eventsList"));
-
   if (!eventsList || events == null) return;
-  let id = 0;
+
   eventsList.forEach((event) => {
     const newEvent = new Event(
       event["nazwa"],
       event["data"],
       event["godzina"],
-      id
+      event["id"],
+      event["important"]
     );
-    id++;
   });
 }

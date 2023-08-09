@@ -23,6 +23,7 @@ body {
     width: 80%;
     border-radius: 15px;
     margin: 1%;
+
     .main_container_flex_row_buttons {
       display: flex;
       flex-direction: column;
@@ -44,6 +45,11 @@ body {
         h3 {
           color: #4f772d;
         }
+      }
+    }
+    @media (max-width: 992px) {
+      .main_container_flex_row_buttons {
+        flex-direction: row;
       }
     }
   }
@@ -72,6 +78,14 @@ body {
       }
       @media (max-width: 992px) {
         .dots {
+          display: none;
+        }
+      }
+      .visual_row_heading {
+        padding-top: 2%;
+      }
+      @media (max-width: 992px) {
+        .visual_row_heading {
           display: none;
         }
       }

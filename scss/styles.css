@@ -12022,6 +12022,11 @@ body h3, body .h3 {
 .main_container .main_container_flex_row .main_container_flex_row_buttons .btn_add:hover h3, .main_container .main_container_flex_row .main_container_flex_row_buttons .btn_add:hover .h3 {
   color: #4f772d;
 }
+@media (max-width: 992px) {
+  .main_container .main_container_flex_row .main_container_flex_row_buttons {
+    flex-direction: row;
+  }
+}
 .main_container .main_container_flex_row_tasks {
   display: flex;
   position: relative;
@@ -12047,6 +12052,14 @@ body h3, body .h3 {
 }
 @media (max-width: 992px) {
   .main_container .main_container_flex_row_tasks .visual_row .dots {
+    display: none;
+  }
+}
+.main_container .main_container_flex_row_tasks .visual_row .visual_row_heading {
+  padding-top: 2%;
+}
+@media (max-width: 992px) {
+  .main_container .main_container_flex_row_tasks .visual_row .visual_row_heading {
     display: none;
   }
 }
